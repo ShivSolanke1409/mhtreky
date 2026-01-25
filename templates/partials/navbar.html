@@ -1,0 +1,18 @@
+<header class="fixed top-0 w-full z-50 glass-nav">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings:'FILL' 1">landscape</span>
+      <span class="text-2xl font-extrabold tracking-tight">MHTREKY</span>
+    </div>
+
+    <nav class="hidden md:flex gap-10 items-center">
+      <a href="{% url 'camps:camp_list' %}" class="text-sm font-semibold uppercase tracking-widest hover:text-primary">
+        Explore Camps
+      </a>
+
+      <a href="#" class="bg-primary text-black px-6 py-2.5 rounded-lg font-bold text-sm uppercase">
+        Login
+      </a>
+    </nav>
+  </div>
+</header>

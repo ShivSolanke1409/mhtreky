@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MHTREKY | Cinematic Sahyadri Adventures</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#eead2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#0a0a08",
+                        "forest-dark": "#161d14",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(10, 10, 8, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(238, 173, 43, 0.1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .cinematic-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(10,10,8,1) 95%);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a08;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332b19;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #eead2b;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary selection:text-black">
+<!-- Sticky Navbar -->
+<header class="fixed top-0 z-50 w-full glass-nav">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">landscape</span>
+</div>
+<h1 class="text-2xl font-extrabold tracking-tighter text-white">MHTREKY</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors uppercase tracking-widest" href="#">Explore</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors uppercase tracking-widest" href="#">About</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors uppercase tracking-widest" href="#">Journal</a>
+<button class="bg-primary text-black px-6 py-2.5 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-white transition-all">
+                    Sign In
+                </button>
+</nav>
+</div>
+</header>
+<main>
+<!-- Cinematic Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 cinematic-overlay z-10"></div>
+<div class="w-full h-full bg-cover bg-center scale-105" data-alt="Night sky with campfire in Sahyadri mountains" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJNDryzXHCly12wOKNqVF5IrpLYWUZTZnCnRRM0D-YUlu0Se4d2_f7_VFmMiw8jYRD2AHQq3u5TL_VJ_XsogRTPj1lu7d42VkfotwFaOYgBaPHmaZu--3CEUN7hMatyFn97W4-_6E9XGMD5Otmz0RKfTVfSloCOHlMyI0JRbD5n3rFKnpWtyhkBsEvbAOtiMEwrhi4BGnwU2vlvT0k78u2RNdeJ3yWeLzvl2zpauEIoH_pESwHgr6mjcfbEqb4z5dslePuwcr9QdrP");'>
+</div>
+</div>
+<div class="relative z-20 text-center px-4 max-w-4xl">
+<span class="text-primary font-bold tracking-[0.3em] uppercase mb-4 block">Adventure Awaits</span>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-8 tracking-tight">
+                    Experience The Rugged Beauty of Sahyadris
+                </h1>
+<!-- Search Component -->
+<div class="glass-card p-2 rounded-xl max-w-3xl mx-auto flex flex-col md:flex-row gap-2">
+<div class="flex-1 flex items-center px-4 py-3 bg-white/5 rounded-lg border border-white/10 group focus-within:border-primary/50">
+<span class="material-symbols-outlined text-white/40 mr-3">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 text-white placeholder:text-white/40 w-full text-sm" placeholder="Where to?" type="text"/>
+</div>
+<div class="flex-1 flex items-center px-4 py-3 bg-white/5 rounded-lg border border-white/10 group focus-within:border-primary/50">
+<span class="material-symbols-outlined text-white/40 mr-3">calendar_today</span>
+<input class="bg-transparent border-none focus:ring-0 text-white placeholder:text-white/40 w-full text-sm" placeholder="When?" type="text"/>
+</div>
+<button class="bg-primary text-black px-8 py-3 rounded-lg font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">search</span>
+                        SEARCH
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce opacity-50">
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</div>
+</section>
+<!-- Featured Camps Section -->
+<section class="py-24 bg-background-dark">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <h2 class="text-3xl font-bold mb-2">Featured Basecamps</h2>
+        <p class="text-white/60">Handpicked cinematic locations for your next escape.</p>
+      </div>
+
+      <a href="{% url 'camps:camp_list' %}"
+         class="text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
+        View All <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="flex overflow-x-auto gap-6 pb-10 -mx-6 px-6 snap-x no-scrollbar">
+
+      {% for camp in featured_camps %}
+      <a href="{% url 'camps:camp_detail' camp.slug %}"
+         class="min-w-[320px] md:min-w-[380px] snap-start group cursor-pointer">
+
+        <div class="relative h-[240px] rounded-xl overflow-hidden mb-4 bg-white/5">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+
+          {% if camp.cover_image %}
+            <img
+              src="{{ camp.cover_image.url }}"
+              alt="{{ camp.name }}"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+          {% else %}
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+              alt="No image"
+              class="w-full h-full object-cover"
+            />
+          {% endif %}
+
+        </div>
+
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-xl font-bold mb-1">{{ camp.name }}</h3>
+            <div class="flex items-center gap-1 text-white/40 text-sm">
+              <span class="material-symbols-outlined text-sm">location_on</span>
+              <span>{{ camp.location }}</span>
+            </div>
+          </div>
+
+          <div class="text-right">
+            <p class="text-primary font-black text-xl">₹{{ camp.price_per_night }}</p>
+            <p class="text-white/40 text-xs">per night</p>
+          </div>
+        </div>
+
+      </a>
+      {% empty %}
+        <p class="text-white/40">No camps available.</p>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- ================= END FEATURED CAMPS ================= -->
+
+<!-- Why MHTREKY Section -->
+<section class="py-24 bg-forest-dark relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] rounded-full -translate-y-1/2"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-3xl mb-16">
+<h2 class="text-4xl font-black mb-6">Why Adventure with MHTREKY?</h2>
+<p class="text-white/60 text-lg leading-relaxed">We don't just book tents; we curate atmospheric journeys that connect you with the soul of Maharashtra's wilderness.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-2xl group hover:border-primary/30 transition-all">
+<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Verified Hosts</h3>
+<p class="text-white/50 text-sm leading-relaxed">Every campsite is personally vetted by our adventure experts for quality, safety, and hospitality.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl group hover:border-primary/30 transition-all">
+<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">female</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Safe for Women</h3>
+<p class="text-white/50 text-sm leading-relaxed">Dedicated security protocols and female-friendly amenities at all listed mountain locations.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl group hover:border-primary/30 transition-all">
+<div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Eco-Friendly</h3>
+<p class="text-white/50 text-sm leading-relaxed">We promote zero-waste camping to preserve the pristine beauty of the Sahyadri range.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-24 bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-center text-3xl font-black mb-20 uppercase tracking-[0.2em]">The Journey</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<!-- Connecting line for desktop -->
+<div class="hidden md:block absolute top-1/4 left-[15%] right-[15%] h-px bg-white/10 z-0"></div>
+<div class="text-center relative z-10">
+<div class="w-16 h-16 bg-background-dark border-2 border-primary text-primary font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6">1</div>
+<h3 class="text-xl font-bold mb-2">Discover</h3>
+<p class="text-white/40 text-sm px-4">Browse our curated list of cinematic campsites in Maharashtra.</p>
+</div>
+<div class="text-center relative z-10">
+<div class="w-16 h-16 bg-background-dark border-2 border-primary text-primary font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6">2</div>
+<h3 class="text-xl font-bold mb-2">Reserve</h3>
+<p class="text-white/40 text-sm px-4">Book with ease through our secure, instant booking engine.</p>
+</div>
+<div class="text-center relative z-10">
+<div class="w-16 h-16 bg-primary text-black font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6">3</div>
+<h3 class="text-xl font-bold mb-2">Explore</h3>
+<p class="text-white/40 text-sm px-4">Arrive at your destination and lose yourself in nature.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-20">
+<div class="max-w-5xl mx-auto px-6">
+<div class="bg-gradient-to-br from-primary/20 to-transparent p-12 rounded-3xl border border-primary/10 text-center">
+<h2 class="text-3xl font-black mb-4">Get Off The Grid</h2>
+<p class="text-white/60 mb-8 max-w-lg mx-auto">Join our newsletter to receive exclusive cinematic camping deals and secret mountain spots.</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-1 bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:ring-primary focus:border-primary" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-black px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white transition-all">Join</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#050505] pt-20 pb-10 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">landscape</span>
+<h2 class="text-xl font-extrabold tracking-tighter">MHTREKY</h2>
+</div>
+<p class="text-white/40 text-sm leading-relaxed">Defining cinematic camping experiences across Maharashtra since 2023. Rugged by nature, luxury by choice.</p>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Navigation</h4>
+<ul class="space-y-4 text-white/50 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Find a Camp</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Adventure Journal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Reviews</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Support</h4>
+<ul class="space-y-4 text-white/50 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cancellation Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Host your Site</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Safety Guides</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
+</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-4">
+<p class="text-white/30 text-xs">© 2024 MHTREKY ADVENTURES PVT LTD. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6 text-white/30 text-xs uppercase tracking-widest">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

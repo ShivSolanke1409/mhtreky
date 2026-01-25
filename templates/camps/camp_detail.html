@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ camp.name }} | MHTREKY
+{% endblock %}
+
+{% block content %}
+<section class="pt-24 pb-16">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- HEADER -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-black mb-2">{{ camp.name }}</h1>
+      <p class="text-white/50 flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">location_on</span>
+        {{ camp.location }}
+      </p>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
+      <div class="lg:col-span-2 h-[420px] rounded-xl overflow-hidden">
+        <img
+          src="{{ camp.cover_image.url }}"
+          class="w-full h-full object-cover"
+          alt="{{ camp.name }}"
+        />
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        {% for img in gallery %}
+          <div class="h-[200px] rounded-xl overflow-hidden">
+            <img
+              src="{{ img.image.url }}"
+              class="w-full h-full object-cover"
+              alt=""
+            />
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+      <!-- DETAILS -->
+      <div class="lg:col-span-2 space-y-8">
+
+        <div>
+          <h3 class="text-xl font-bold mb-3">About this camp</h3>
+          <p class="text-white/70 leading-relaxed">
+            {{ camp.description|linebreaks }}
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Upcoming Availability</h3>
+
+          {% if availability %}
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {% for slot in availability %}
+                <div class="glass p-4 rounded-xl text-sm">
+                  <p class="font-bold">{{ slot.date }}</p>
+                  <p class="text-white/50">
+                    {{ slot.available_slots }} slots available
+                  </p>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="text-white/40">No availability in next 30 days.</p>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <!-- BOOKING SIDEBAR -->
+      <div>
+        <div class="sticky top-28 glass p-6 rounded-2xl space-y-6">
+
+          <div>
+            <p class="text-white/40 text-sm">Starting from</p>
+            {% if starting_price %}
+              <p class="text-3xl font-black text-primary">
+                ₹{{ starting_price }}
+                <span class="text-white/40 text-sm">/ person</span>
+              </p>
+            {% else %}
+              <p class="text-white/50">Pricing not available</p>
+            {% endif %}
+          </div>
+
+          <form method="POST" action="{% url 'camps:create_booking' camp.id %}">
+  {% csrf_token %}
+
+  <select name="date" required class="w-full bg-white/5 p-3 rounded mb-3">
+    {% for p in pricing %}
+      <option value="{{ p.date }}">
+        {{ p.date }} — ₹{{ p.price_per_person }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <input
+    type="number"
+    name="guests"
+    min="1"
+    max="10"
+    value="1"
+    class="w-full bg-white/5 p-3 rounded mb-4"
+  />
+
+  <button
+    type="submit"
+    class="w-full bg-primary text-background-dark font-black py-4 rounded-xl"
+  >
+    Book Now
+  </button>
+</form>
+
+
+          <p class="text-xs text-white/40 text-center">
+            Advance payment required • Free cancellation before 48 hours
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{% endblock %}

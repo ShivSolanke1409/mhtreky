@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Explore Camps | MHTREKY{% endblock %}
+
+{% block content %}
+<section class="pt-28 pb-16">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- HEADER -->
+    <div class="mb-10">
+      <h1 class="text-4xl font-black mb-2">Explore Camps</h1>
+
+      {% if location %}
+        <p class="text-white/50">
+          Showing results for <span class="text-primary font-semibold">{{ location }}</span>
+        </p>
+      {% else %}
+        <p class="text-white/50">Verified camps across Maharashtra</p>
+      {% endif %}
+    </div>
+
+    <!-- GRID -->
+    {% if camps %}
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {% for camp in camps %}
+      <a href="{% url 'camps:camp_detail' camp.id %}" class="group block">
+
+        <div class="relative h-[240px] rounded-xl overflow-hidden mb-4 bg-white/5">
+          {% if camp.cover_image %}
+            <img
+              src="{{ camp.cover_image.url }}"
+              alt="{{ camp.name }}"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+          {% else %}
+            <div class="w-full h-full flex items-center justify-center text-white/30">
+              No image
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-xl font-bold">{{ camp.name }}</h3>
+            <p class="text-white/40 text-sm">{{ camp.location }}</p>
+          </div>
+
+          <div class="text-right">
+            <p class="text-primary font-black text-xl">
+              ₹{{ camp.starting_price|floatformat:0 }}
+            </p>
+            <p class="text-xs text-white/40">Starting price</p>
+          </div>
+        </div>
+
+      </a>
+      {% endfor %}
+
+    </div>
+    {% else %}
+      <p class="text-white/50 mt-20 text-center">
+        No camps found. Try another location.
+      </p>
+    {% endif %}
+
+    <!-- PAGINATION -->
+    {% if camps.has_other_pages %}
+    <div class="flex justify-center gap-4 mt-16">
+
+      {% if camps.has_previous %}
+        <a href="?location={{ location }}&page={{ camps.previous_page_number }}"
+           class="px-4 py-2 border border-white/20 rounded">
+          Prev
+        </a>
+      {% endif %}
+
+      <span class="px-4 py-2 text-white/40">
+        Page {{ camps.number }} of {{ camps.paginator.num_pages }}
+      </span>
+
+      {% if camps.has_next %}
+        <a href="?location={{ location }}&page={{ camps.next_page_number }}"
+           class="px-4 py-2 border border-white/20 rounded">
+          Next
+        </a>
+      {% endif %}
+
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}
