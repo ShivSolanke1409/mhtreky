@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | MHTREKY</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#eead2b",
+            backgroundDark: "#0a0a08"
+          },
+          fontFamily: {
+            display: ["Manrope", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-backgroundDark font-display text-white min-h-screen flex flex-col">
+
+<header class="fixed top-0 z-50 w-full bg-black/70 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-primary text-4xl">landscape</span>
+      <span class="text-2xl font-extrabold">MHTREKY</span>
+    </a>
+    <span class="text-xs uppercase tracking-widest text-white/40">Organizer Portal</span>
+  </div>
+</header>
+
+<main class="flex-grow flex items-center justify-center pt-24 px-6">
+  <div class="w-full max-w-md bg-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10">
+
+    <h2 class="text-3xl font-extrabold mb-2">Welcome Back</h2>
+    <p class="text-white/50 text-sm mb-8">Login to continue your adventure</p>
+
+    <!-- ERRORS -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="mb-4 text-sm text-red-400 font-semibold">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- FORM -->
+    <form method="post" action="{% url 'accounts:login' %}" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- EMAIL -->
+      <div>
+        <label class="block text-xs uppercase tracking-widest text-white/40 mb-2">Email</label>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="name@example.com"
+          class="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary text-white"
+        />
+      </div>
+
+      <!-- PASSWORD -->
+      <div>
+        <label class="block text-xs uppercase tracking-widest text-white/40 mb-2">Password</label>
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="••••••••"
+          class="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary text-white"
+        />
+      </div>
+
+      <!-- SUBMIT -->
+      <button
+        type="submit"
+        class="w-full bg-primary text-black font-extrabold py-4 rounded-xl uppercase tracking-widest hover:scale-[1.02] transition"
+      >
+        Login
+      </button>
+    </form>
+
+    <!-- LINKS -->
+    <div class="mt-8 pt-6 border-t border-white/10 space-y-3 text-sm">
+      <a href="{% url 'accounts:register_customer' %}" class="block text-primary hover:underline">
+        Create customer account
+      </a>
+      <a href="{% url 'accounts:register_organizer' %}" class="block text-white/70 hover:text-primary">
+        List your camp (Organizer)
+      </a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

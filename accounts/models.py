@@ -14,6 +14,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
 
     date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(null=True, blank=True)
 
     objects = UserManager()
 
@@ -28,7 +29,8 @@ class OrganizerProfile(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
-        related_name="organizer_profile"
+        related_name="organizer_profile",
+        limit_choices_to={"is_organizer": True},
     )
     organization_name = models.CharField(max_length=255)
     contact_person = models.CharField(max_length=255)

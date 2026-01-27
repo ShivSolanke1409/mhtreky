@@ -90,16 +90,16 @@
             {% endif %}
           </div>
 
-          <form method="POST" action="{% url 'camps:create_booking' camp.id %}">
+          <form method="POST" action="{% url 'bookings:create_booking' camp.id %}">
   {% csrf_token %}
 
   <select name="date" required class="w-full bg-white/5 p-3 rounded mb-3">
-    {% for p in pricing %}
-      <option value="{{ p.date }}">
-        {{ p.date }} — ₹{{ p.price_per_person }}
-      </option>
+  {% for p in pricing %}
+    <option value="{{ p.date|date:'Y-m-d' }}">
+      {{ p.date|date:"d M Y" }} — ₹{{ p.price_per_person }}
+    </option>
     {% endfor %}
-  </select>
+    </select>
 
   <input
     type="number"
