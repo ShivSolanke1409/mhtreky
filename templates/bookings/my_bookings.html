@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+
+    <h1 class="text-2xl font-bold mb-6">My Bookings</h1>
+
+    {% if bookings %}
+        <div class="overflow-x-auto">
+            <table class="min-w-full border-separate border-spacing-0 border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                <thead class="bg-gray-400">
+                    <tr>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Camp</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Date</th>
+                        <th class="px-4 py-3 text-center text-sm font-semibold">Guests</th>
+                        <th class="px-4 py-3 text-right text-sm font-semibold">Amount</th>
+                        <th class="px-4 py-3 text-center text-sm font-semibold">Status</th>
+                        <th class="px-4 py-3 text-center text-sm font-semibold">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr class="border-t ">
+                        <td class="px-4 py-3">
+                            <div class="font-medium">{{ booking.camp.name }}</div>
+                            <div class="text-xs text-gray-500">
+                                Booked on {{ booking.created_at|date:"d M Y" }}
+                            </div>
+                        </td>
+
+                        <td class="px-4 py-3">
+                            {{ booking.date|date:"d M Y" }}
+                        </td>
+
+                        <td class="px-4 py-3 text-center">
+                            {{ booking.people_count }}
+                        </td>
+
+                        <td class="px-4 py-3 text-right font-semibold">
+                            ₹{{ booking.total_amount }}
+                        </td>
+
+                        <td class="px-4 py-3 text-center">
+                            {% if booking.status == "CONFIRMED" %}
+                                <span class="px-2 py-1 text-xs rounded bg-green-100 text-green-700">
+                                    Confirmed
+                                </span>
+                            {% elif booking.status == "CANCELLED" %}
+                                <span class="px-2 py-1 text-xs rounded bg-red-100 text-red-700">
+                                    Cancelled
+                                </span>
+                            {% else %}
+                                <span class="px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-700">
+                                    Pending
+                                </span>
+                            {% endif %}
+                        </td>
+
+                        <td class="px-4 py-3 text-center">
+                            <a href="{% url 'bookings:booking_summary' booking.id %}"
+                               class="text-sm text-blue-600 hover:underline">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="text-center py-16">
+            <p class="text-gray-500 mb-4">You haven’t made any bookings yet.</p>
+            <a href="{% url 'camps:home' %}"
+               class="inline-block px-4 py-2 bg-black text-white rounded">
+                Explore Camps
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

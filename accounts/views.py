@@ -45,7 +45,7 @@ def register_customer(request):
         user.save()
 
         login(request, user)
-        return redirect("home")
+        return redirect("camps:home")
 
     return render(request, "accounts/register_customer.html")
 

@@ -1,236 +1,142 @@
-<!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Booking Confirmed | MHTREKY</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#eead2b",
-                        "background-light": "#f8f7f6",
-                        "background-dark": "#0a0a08",
-                        "forest-dark": "#161d14",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style type="text/tailwindcss">
-        .glass-nav {
-            background: rgba(10, 10, 8, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(238, 173, 43, 0.1);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .cinematic-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(10,10,8,1) 100%);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a08;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #332b19;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #eead2b;
-        }
-    </style>
-</head>
-<body class="bg-background-dark font-display text-white selection:bg-primary selection:text-black min-h-screen">
-<header class="fixed top-0 z-50 w-full glass-nav">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="text-primary">
-<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1">landscape</span>
-</div>
-<h1 class="text-2xl font-extrabold tracking-tighter text-white">MHTREKY</h1>
-</div>
-<nav class="hidden md:flex items-center gap-10">
-<a class="text-sm font-semibold hover:text-primary transition-colors uppercase tracking-widest" href="#">Explore</a>
-<a class="text-sm font-semibold hover:text-primary transition-colors uppercase tracking-widest" href="#">Bookings</a>
-<div class="w-10 h-10 rounded-full border border-primary/30 overflow-hidden">
-<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxLbn65Cbh5VCxxGmG4vlXZI4-rUcMG2WqhvC-q-vs7QgjA_mgDDAFpsrA8ydAHLa915NcPyx_-BGkox_S1UcZtARvVkUcRS2GCLj9aoh5bcnd0matXHlCLhoneQUtKgYHdN1a7jqy0nPTQ3t2jXGkMieCAm_IIetAC96A_hvYIjPEZxpEET4O6Y1NeN-KWtD7ADO2OafWbIkQEmpxQCn198-7Om62G8pVu49JaOeG7Jpm2VWdrPjU7Vf1bmm3WsnYD07nuzzDbuxD"/>
-</div>
-</nav>
-</div>
-</header>
-<main class="pt-20">
-<section class="relative h-[45vh] w-full flex items-center justify-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 cinematic-overlay z-10"></div>
-<div class="w-full h-full bg-cover bg-center scale-105" data-alt="Starlit mountain sky" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJNDryzXHCly12wOKNqVF5IrpLYWUZTZnCnRRM0D-YUlu0Se4d2_f7_VFmMiw8jYRD2AHQq3u5TL_VJ_XsogRTPj1lu7d42VkfotwFaOYgBaPHmaZu--3CEUN7hMatyFn97W4-_6E9XGMD5Otmz0RKfTVfSloCOHlMyI0JRbD5n3rFKnpWtyhkBsEvbAOtiMEwrhi4BGnwU2vlvT0k78u2RNdeJ3yWeLzvl2zpauEIoH_pESwHgr6mjcfbEqb4z5dslePuwcr9QdrP");'></div>
-</div>
-<div class="relative z-20 text-center px-4">
-<div class="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 border border-primary/50 text-primary">
-<span class="material-symbols-outlined text-5xl">check_circle</span>
-</div>
-<span class="text-primary font-bold tracking-[0.4em] uppercase mb-2 block">Pack Your Bags</span>
-<h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">Booking Confirmed</h1>
-<p class="mt-4 text-white/60 font-medium tracking-wide">Confirmation ID: #MT-82941-SAH</p>
-</div>
-</section>
-<section class="max-w-7xl mx-auto px-6 -mt-16 relative z-30 pb-24">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<div class="lg:col-span-8 space-y-8">
-<div class="glass-card rounded-2xl overflow-hidden">
-<div class="p-8 border-b border-white/5">
-<h2 class="text-xl font-bold flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">event_available</span>
-                            Booking Details
-                        </h2>
-</div>
-<div class="p-8">
-<div class="flex flex-col md:flex-row gap-8">
-<div class="w-full md:w-1/3 aspect-[4/3] rounded-xl overflow-hidden">
-<img alt="Pawna Lake Retreat" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMh2mF1XOVckmoE2_ztR2c53DzLFcKlXCsUJ7fqcIyrzBUyqsuQ40zKEK3dRYQY6XTqeBeJM1xrwm9qNONkCbkoOkoToe9LH-iYjxnCBV7JZdCeYCDK3osANB1tx5vRmcDKfN9xvaYFeJ7cc2wFDM4w2li9_qegU_bUdozrd2k7cv135r_9XAfcGcOjBreI2zBq1hi68oMTJf2JVKOyrGIMl91icOeSjcFpVpEiFKqu3ihzyTQxBrpFUp2cS0UQ2zayHhlHelW025G"/>
-</div>
-<div class="flex-1 space-y-6">
-<div>
-<h3 class="text-2xl font-black text-white">Pawna Lake Lakeside Retreat</h3>
-<div class="flex items-center gap-2 text-white/40 mt-1">
-<span class="material-symbols-outlined text-sm">location_on</span>
-<span class="text-sm">Thakursai Village, Pawna Dam, Maharashtra</span>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-8">
-<div>
-<p class="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-1">Check In</p>
-<p class="text-lg font-bold">14 Oct, 2024</p>
-<p class="text-white/60 text-sm">After 02:00 PM</p>
-</div>
-<div>
-<p class="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-1">Check Out</p>
-<p class="text-lg font-bold">15 Oct, 2024</p>
-<p class="text-white/60 text-sm">Before 11:00 AM</p>
-</div>
-</div>
-<div class="flex items-center gap-6 pt-4 border-t border-white/5">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary/70">group</span>
-<span class="text-sm font-medium">4 Adults</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary/70">camping</span>
-<span class="text-sm font-medium">2 Luxury Tents</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="glass-card p-6 rounded-2xl flex items-center gap-5 hover:border-primary/30 transition-all cursor-pointer group">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl">map</span>
-</div>
-<div>
-<h4 class="font-bold">Get Directions</h4>
-<p class="text-xs text-white/40">Open in Google Maps</p>
-</div>
-<span class="material-symbols-outlined ml-auto text-white/20">chevron_right</span>
-</div>
-<div class="glass-card p-6 rounded-2xl flex items-center gap-5 hover:border-primary/30 transition-all cursor-pointer group">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-3xl">chat</span>
-</div>
-<div>
-<h4 class="font-bold">Contact Host</h4>
-<p class="text-xs text-white/40">Reach out for special requests</p>
-</div>
-<span class="material-symbols-outlined ml-auto text-white/20">chevron_right</span>
-</div>
-</div>
-</div>
-<div class="lg:col-span-4 space-y-6">
-<div class="glass-card rounded-2xl p-8 border border-primary/20">
-<h2 class="text-xl font-bold mb-6">Payment Summary</h2>
-<div class="space-y-4">
-<div class="flex justify-between text-white/60 text-sm">
-<span>Booking Subtotal</span>
-<span>₹6,000.00</span>
-</div>
-<div class="flex justify-between text-white/60 text-sm">
-<span>Service Fee (10%)</span>
-<span>₹600.00</span>
-</div>
-<div class="flex justify-between font-bold text-lg pt-4 border-t border-white/10">
-<span>Total Price</span>
-<span class="text-white">₹6,600.00</span>
-</div>
-<div class="flex justify-between text-primary font-bold">
-<span>50% Advance Paid</span>
-<span>- ₹3,300.00</span>
-</div>
-<div class="bg-primary/5 p-4 rounded-xl mt-4 border border-primary/10">
-<div class="flex justify-between items-center">
-<span class="text-xs font-bold uppercase tracking-widest text-primary">Balance at Camp</span>
-<span class="text-2xl font-black text-primary">₹3,300.00</span>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-3">
-<button class="w-full bg-primary text-black py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-3 shadow-lg shadow-primary/10">
-<span class="material-symbols-outlined">download_for_offline</span>
-                        Download Receipt
-                    </button>
-<button class="w-full bg-white/5 text-white py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-white/10 transition-all border border-white/10">
-                        View My Bookings
-                    </button>
-</div>
-<div class="p-6 bg-forest-dark/50 rounded-2xl border border-white/5">
-<div class="flex items-center gap-3 mb-3">
-<span class="material-symbols-outlined text-primary text-xl">info</span>
-<h5 class="text-sm font-bold">Host's Note</h5>
-</div>
-<p class="text-xs text-white/50 leading-relaxed italic">
-                        "Welcome to the Sahyadris! Please carry valid ID proofs and try to reach the base camp before sunset for the best experience. We've arranged a special bonfire for your group."
-                    </p>
-</div>
-</div>
-</div>
+{% extends "base.html" %}
+
+{% block title %}
+Booking Summary | MHTREKY
+{% endblock %}
+
+{% block content %}
+
+<main class="pt-24">
+<section class="max-w-7xl mx-auto px-6 pb-24">
+
+  <!-- HEADER -->
+  <div class="mb-10 text-center">
+    <span class="material-symbols-outlined text-primary text-6xl mb-4">
+      check_circle
+    </span>
+
+    <h1 class="text-4xl font-black">
+      {% if booking.status == "CONFIRMED" %}
+        Booking Confirmed
+      {% else %}
+        Booking Summary
+      {% endif %}
+    </h1>
+
+    <p class="text-white/50 mt-2">
+      Booking ID: MT-{{ booking.id }}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+    <!-- LEFT -->
+    <div class="lg:col-span-8 glass-card rounded-2xl p-8 space-y-6">
+
+      <div>
+        <h2 class="text-2xl font-black">{{ booking.camp.name }}</h2>
+        <p class="text-white/50 flex items-center gap-1 mt-1">
+          <span class="material-symbols-outlined text-sm">location_on</span>
+          {{ booking.camp.location }}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-white/40">Date</p>
+          <p class="text-lg font-bold">
+            {{ booking.date|date:"d M Y" }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-xs uppercase tracking-widest text-white/40">Guests</p>
+          <p class="text-lg font-bold">
+            {{ booking.people_count }}
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-widest text-white/40 mb-1">Status</p>
+        <span class="px-4 py-1 rounded-full text-xs font-bold
+          {% if booking.status == 'CONFIRMED' %}
+            bg-green-500/20 text-green-400
+          {% elif booking.status == 'PENDING' %}
+            bg-yellow-500/20 text-yellow-400
+          {% else %}
+            bg-red-500/20 text-red-400
+          {% endif %}
+        ">
+          {{ booking.get_status_display }}
+        </span>
+      </div>
+{% if booking.status == "cancelled" %}
+  <p class="text-red-400 font-semibold mt-4">This booking has been cancelled.</p>
+{% else %}
+  <!-- Cancel form -->
+
+      {% if booking.status != "cancelled" and booking.status != "confirmed" or booking.balance_amount > 0 %}
+<form method="POST"
+      action="{% url 'bookings:cancel_booking' booking.id %}"
+      onsubmit="return confirm('Are you sure you want to cancel this booking?');"
+      class="pt-4">
+
+  {% csrf_token %}
+
+  <button type="submit"
+          class="w-full bg-red-600 hover:bg-red-700
+                 transition duration-300
+                 text-white font-bold py-3 rounded-xl">
+    Cancel Booking
+  </button>
+
+</form>
+{% endif %}
+{% endif %}
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="lg:col-span-4 glass-card rounded-2xl p-8 space-y-6">
+
+      <h3 class="text-xl font-black">Payment Summary</h3>
+
+      <div class="flex justify-between text-sm text-white/60">
+        <span>Subtotal</span>
+        <span>₹{{ booking.subtotal|default:"0.00"|floatformat:2 }}</span>
+      </div>
+
+      <div class="flex justify-between text-sm text-white/60">
+        <span>Service Fee</span>
+        <span>₹{{ booking.service_fee|default:"0.00"|floatformat:2 }}</span>
+      </div>
+
+      <div class="flex justify-between font-bold text-lg border-t border-white/10 pt-4">
+        <span>Total</span>
+        <span>₹{{ booking.total_amount|default:"0.00"|floatformat:2 }}</span>
+      </div>
+
+      <div class="flex justify-between text-primary font-bold">
+        <span>Advance Paid</span>
+        <span>₹{{ booking.advance_amount|default:"0.00"|floatformat:2 }}</span>
+      </div>
+
+      <div class="bg-primary/10 p-4 rounded-xl border border-primary/20">
+        <div class="flex justify-between items-center">
+          <span class="text-xs uppercase tracking-widest font-bold text-primary">
+            Balance at Camp
+          </span>
+          <span class="text-2xl font-black text-primary">
+            ₹{{ booking.balance_amount|default:"0.00"|floatformat:2 }}
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 </main>
-<footer class="bg-[#050505] pt-12 pb-10 border-t border-white/5">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-3xl">landscape</span>
-<h2 class="text-xl font-extrabold tracking-tighter">MHTREKY</h2>
-</div>
-<p class="text-white/30 text-xs tracking-widest uppercase">© 2024 MHTREKY ADVENTURES PVT LTD. ALL RIGHTS RESERVED.</p>
-<div class="flex gap-8 text-white/40 text-xs font-bold uppercase tracking-widest">
-<a class="hover:text-primary transition-colors" href="#">Privacy</a>
-<a class="hover:text-primary transition-colors" href="#">Help Center</a>
-<a class="hover:text-primary transition-colors" href="#">Support</a>
-</div>
-</div>
-</div>
-</footer>
 
-</body></html>
+{% endblock %}

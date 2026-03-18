@@ -90,10 +90,10 @@
             {% endif %}
           </div>
 
-          <form method="POST" action="{% url 'bookings:create_booking' camp.id %}">
+          <form method="POST" action="{% url 'bookings:book_camp' camp.id %}">
   {% csrf_token %}
 
-  <select name="date" required class="w-full bg-white/5 p-3 rounded mb-3">
+  <select name="date" required class="w-full bg-neutral-800 p-3 rounded mb-3">
   {% for p in pricing %}
     <option value="{{ p.date|date:'Y-m-d' }}">
       {{ p.date|date:"d M Y" }} — ₹{{ p.price_per_person }}
@@ -103,19 +103,22 @@
 
   <input
     type="number"
-    name="guests"
+    name="people_count"
     min="1"
     max="10"
     value="1"
     class="w-full bg-white/5 p-3 rounded mb-4"
   />
 
-  <button
-    type="submit"
-    class="w-full bg-primary text-background-dark font-black py-4 rounded-xl"
-  >
-    Book Now
-  </button>
+ <button
+  type="submit"
+  class="w-full bg-primary text-background-dark font-black py-4 rounded-xl
+         transition duration-300 ease-in-out
+         hover:opacity-90 hover:scale-[1.09]
+         active:scale-95"
+>
+  Book Now
+</button>
 </form>
 
 

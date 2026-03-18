@@ -4,14 +4,21 @@ from django.utils.timezone import now
 from datetime import timedelta
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Camp, CampPricing, CampAvailability, CampBooking
+from .models import Camp, CampPricing, CampAvailability
 from django.db import transaction
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required  
 from django.contrib import messages
 
 
 def home(request):
-    return render(request, "camps/home.html")
+    featured_camps = Camp.objects.filter(
+        is_featured=True,
+        status=Camp.Status.APPROVED
+    ).order_by('featured_order')[:8]
+
+    return render(request, 'camps/home.html', {
+        'featured_camps': featured_camps
+    })
 
 def camp_list(request):
     location = request.GET.get("location", "").strip()
