@@ -122,22 +122,3 @@ project/
 * Production deployment (Render/Hostinger/AWS)
 * SEO optimization
 
-
-
-Now listen carefully.
-
-This overview is solid for:
-
-* Portfolio
-* Internship
-* GitHub showcase
-
-But if you want recruiter-level impact, you need:
-
-* Deployment link
-* Screenshots
-* Short demo video
-* Real database (PostgreSQL)
-* Proper README formatting
-
-Are you building this to get a job, or just to complete a project?
