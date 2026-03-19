@@ -2,7 +2,7 @@
 {% block title %}Explore Camps | MHTREKY{% endblock %}
 
 {% block content %}
-  <div class="max-w-7xl mx-auto px-6 py-12">
+  <div class="max-w-7xl mx-auto px-6 py-12 bg-white/5 p-8 rounded-2xl border border-white/10">
 
     <!-- HEADER -->
     <div class="mb-10">
@@ -19,7 +19,7 @@
 
     <!-- GRID -->
     {% if camps %}
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 bg-white/5 p-8 rounded-2xl border border-white/10">
 
       {% for camp in camps %}
       <a href="{% url 'camps:camp_detail' camp.id %}" class="group block">

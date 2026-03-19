@@ -45,7 +45,7 @@
 
 <!-- FEATURED CAMPS -->
 
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 py-16">
 
     <div class="flex justify-between items-end mb-12">
       <div>
@@ -58,9 +58,9 @@
       </a>
     </div>
 
-    <div class="flex overflow-x-auto gap-8 pb-6">
+    <div class="flex overflow-x-auto gap-8 pb-6 ">
       {% for camp in featured_camps %}
-      <div class="min-w-[320px] md:min-w-[380px] group cursor-pointer">
+      <div class="min-w-[320px] md:min-w-[380px] group cursor-pointer bg-white/5 p-8 rounded-2xl border border-white/10">
         <a href="{% url 'camps:camp_detail' camp.id %}">
         <div class="relative h-[240px] rounded-xl overflow-hidden mb-4">
           <img src="{{ camp.cover_image.url }}"
@@ -87,8 +87,8 @@
 
 
 <!-- WHY -->
-<section class="py-24 bg-forest-dark">
-  <div class="max-w-7xl mx-auto px-6">
+<section class="py-16 bg-gradient to-b from-transparent to-black/20">
+  <div class="max-w-7xl mx-auto px-6  bg-white/5 p-8 rounded-2xl border border-white/10">
     <h2 class="text-4xl font-black mb-16">Why MHTREKY?</h2>
 <div class="grid md:grid-cols-3 gap-8">
 
@@ -96,7 +96,7 @@
     class="glass-card p-8 rounded-2xl transition-all duration-300
            hover:-translate-y-2
            hover:shadow-[0_0_40px_rgba(255,200,80,0.35)]
-           hover:border hover:border-primary/50">
+           hover:border hover:border-primary/90">
     <h3 class="font-bold text-xl mb-3">Verified Camps</h3>
     <p class="text-white/50 text-sm">
       All camps approved by admin after manual verification.

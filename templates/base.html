@@ -30,6 +30,10 @@
   </script>
 
   <style>
+    body {
+    transition: background 0.4s ease-out;
+    }
+
     .glass-nav {
       background: rgba(10,10,8,0.75);
       backdrop-filter: blur(12px);
@@ -46,8 +50,8 @@
   </style>
 </head>
 
-<body class="bg-background-dark font-display text-white">
 
+<body id="page-body" class="transition-colors duration-700 ease-linear text-white font-display">
   {% include "partials/navbar.html" %}
 
   <main class="pt-16">
@@ -113,5 +117,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const body = document.getElementById("page-body");
+
+    function updateBackground() {
+
+        const scrollY = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = scrollY / docHeight;
+
+        
+        const hue = 44 + (scrollPercent * 6);        // 38 → 44 (gold range only)
+        const saturation = 40 + (scrollPercent * 10); 
+        const lightness = 10 + (scrollPercent * 8);  // stays dark overall
+
+        body.style.background = `
+        linear-gradient(
+        180deg,
+        hsl(${hue}, ${saturation}%, ${lightness}%),
+        hsl(${hue}, ${saturation + 5}%, ${lightness - 4}%)
+      )
+        `;
+    }
+
+    window.addEventListener("scroll", updateBackground);
+    updateBackground();
+
+});
+</script>
 </body>
 </html>

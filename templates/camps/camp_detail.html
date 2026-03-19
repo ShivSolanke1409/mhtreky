@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<section class="pt-24 pb-16">
-  <div class="max-w-7xl mx-auto px-6">
+<section class="pt-24 pb-16 ">
+  <div class="max-w-7xl mx-auto px-6 ">
 
     <!-- HEADER -->
     <div class="mb-8">
@@ -18,7 +18,7 @@
     </div>
 
     <!-- GALLERY -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12 bg-white/5 p-8 rounded-2xl border border-white/10">
       <div class="lg:col-span-2 h-[420px] rounded-xl overflow-hidden">
         <img
           src="{{ camp.cover_image.url }}"
@@ -46,7 +46,7 @@
       <!-- DETAILS -->
       <div class="lg:col-span-2 space-y-8">
 
-        <div>
+        <div class= "bg-white/5 p-8 rounded-2xl border border-white/10">
           <h3 class="text-xl font-bold mb-3">About this camp</h3>
           <p class="text-white/70 leading-relaxed">
             {{ camp.description|linebreaks }}
@@ -75,7 +75,7 @@
       </div>
 
       <!-- BOOKING SIDEBAR -->
-      <div>
+      <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
         <div class="sticky top-28 glass p-6 rounded-2xl space-y-6">
 
           <div>
