@@ -30,12 +30,19 @@
   </script>
 
   <style>
+    
     body {
     transition: background 0.4s ease-out;
     }
 
+    .why-active {
+    transform: translateY(-6px);
+    box-shadow: 0 0 35px rgba(203, 148, 29, 0.737);
+    border: 1px solid rgba(247, 169, 0, 0.895);
+    }
+
     .glass-nav {
-      background: rgba(10,10,8,0.75);
+      background: rgba(10, 10, 8, 0.276);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(238,173,43,0.15);
     }
@@ -91,6 +98,40 @@
 }
 </style>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(".why-card");
+    let index = 0;
+    let interval;
+
+    function activateCard(i) {
+        cards.forEach(card => card.classList.remove("why-active"));
+        cards[i].classList.add("why-active");
+    }
+
+    function startCycle() {
+        interval = setInterval(() => {
+            activateCard(index);
+            index = (index + 1) % cards.length;
+        }, 2500);
+    }
+
+    function stopCycle() {
+        clearInterval(interval);
+    }
+
+    // Pause on hover
+    cards.forEach(card => {
+        card.addEventListener("mouseenter", stopCycle);
+        card.addEventListener("mouseleave", startCycle);
+    });
+
+    activateCard(index);
+    startCycle();
+
+});
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
